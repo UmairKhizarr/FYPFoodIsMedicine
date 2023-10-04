@@ -1,0 +1,58 @@
+﻿body {
+}
+
+.formbg {
+    background: #444654;
+    min-height: 695px;
+}
+
+.fontsize {
+    font-size: 18px;
+}
+
+.h2fontsize {
+    font-size: 30px;
+}
+.ml-2
+{
+    margin-left:20px;
+}
+.h5fontsize {
+    font-size: 18px;
+}
+
+.textbox {
+    width: 14%;
+    height: 70px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@media(max-width:1200px) {
+    .textbox {
+        height: 50px;
+    }
+
+    .h2fontsize {
+        font-size: 25px;
+    }
+
+    .h5fontsize {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:767px) {
+    .textbox {
+        height: 40px;
+    }
+
+    .h2fontsize {
+        font-size: 20px;
+    }
+
+    .h5fontsize {
+        font-size: 13px;
+    }
+}

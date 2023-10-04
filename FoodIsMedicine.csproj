@@ -1,0 +1,544 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{701F5448-2257-4168-9954-E5E9CE38D2D8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FoodIsMedicine</RootNamespace>
+    <AssemblyName>FoodIsMedicine</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44359</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=30.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.30.0.1\lib\net47\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.0.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Python.Runtime, Version=3.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Python.Runtime.NETStandard.3.7.1\lib\netstandard2.0\Python.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="addAdmin.aspx" />
+    <Content Include="addDietPlan.aspx" />
+    <Content Include="addDisease.aspx" />
+    <Content Include="addRecommendation.aspx" />
+    <Content Include="adminDashboard.aspx" />
+    <Content Include="adminLogin.aspx" />
+    <Content Include="adminLoginStyle\css\main.css" />
+    <Content Include="adminLoginStyle\css\util.css" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="adminLoginStyle\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="adminLoginStyle\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="adminLoginStyle\images\adminLogo.jpg" />
+    <Content Include="adminLoginStyle\images\bg-01.jpg" />
+    <Content Include="adminLoginStyle\images\icons\favicon.ico" />
+    <Content Include="adminLoginStyle\images\icons\map-marker.png" />
+    <Content Include="adminLoginStyle\vendor\animate\animate.css" />
+    <Content Include="adminLoginStyle\vendor\animsition\css\animsition.css" />
+    <Content Include="adminLoginStyle\vendor\animsition\css\animsition.min.css" />
+    <Content Include="adminLoginStyle\vendor\animsition\js\animsition.js" />
+    <Content Include="adminLoginStyle\vendor\animsition\js\animsition.min.js" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\js\popper.js" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="adminLoginStyle\vendor\countdowntime\countdowntime.js" />
+    <Content Include="adminLoginStyle\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="adminLoginStyle\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="adminLoginStyle\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="adminLoginStyle\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="adminLoginStyle\vendor\daterangepicker\moment.js" />
+    <Content Include="adminLoginStyle\vendor\daterangepicker\moment.min.js" />
+    <Content Include="adminLoginStyle\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="adminLoginStyle\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="adminLoginStyle\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="adminLoginStyle\vendor\select2\select2.css" />
+    <Content Include="adminLoginStyle\vendor\select2\select2.js" />
+    <Content Include="adminLoginStyle\vendor\select2\select2.min.css" />
+    <Content Include="adminLoginStyle\vendor\select2\select2.min.js" />
+    <Content Include="CodeVarification.aspx" />
+    <Content Include="css\AdminLoginStyle.css" />
+    <Content Include="css\codeVerification.css" />
+    <Content Include="css\styleM.css" />
+    <Content Include="css\template.css" />
+    <Content Include="css\typicons.css" />
+    <Content Include="Feedback.aspx" />
+    <Content Include="forgotPass.aspx" />
+    <Content Include="Home.aspx" />
+    <Content Include="img\food.jpeg" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logoer.png" />
+    <Content Include="img\sleepingTips.png" />
+    <Content Include="img\umairInsta.jpg" />
+    <Content Include="img\userbg.jpg" />
+    <Content Include="js\template.js" />
+    <Content Include="js\vendor.bundle.base.js" />
+    <Content Include="listAdmins.aspx" />
+    <Content Include="listDiseases.aspx" />
+    <Content Include="listUsers.aspx" />
+    <Content Include="logoutAdmin.aspx" />
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="model.py" />
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="RequestDietPlan.aspx" />
+    <Content Include="Services.aspx" />
+    <Content Include="SetupNewPassword.aspx" />
+    <Content Include="showDietPlan.aspx" />
+    <Content Include="showRecommendations.aspx" />
+    <Content Include="updatedPass.aspx" />
+    <Content Include="userLogin.aspx" />
+    <Content Include="userSignUp.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="addAdmin.aspx.cs">
+      <DependentUpon>addAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addAdmin.aspx.designer.cs">
+      <DependentUpon>addAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addDietPlan.aspx.cs">
+      <DependentUpon>addDietPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addDietPlan.aspx.designer.cs">
+      <DependentUpon>addDietPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addDisease.aspx.cs">
+      <DependentUpon>addDisease.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addDisease.aspx.designer.cs">
+      <DependentUpon>addDisease.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addRecommendation.aspx.cs">
+      <DependentUpon>addRecommendation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addRecommendation.aspx.designer.cs">
+      <DependentUpon>addRecommendation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminDashboard.aspx.cs">
+      <DependentUpon>adminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminDashboard.aspx.designer.cs">
+      <DependentUpon>adminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminDashboard.Master.cs">
+      <DependentUpon>adminDashboard.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminDashboard.Master.designer.cs">
+      <DependentUpon>adminDashboard.Master</DependentUpon>
+    </Compile>
+    <Compile Include="adminLogin.aspx.cs">
+      <DependentUpon>adminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminLogin.aspx.designer.cs">
+      <DependentUpon>adminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminLogin_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="checkAdminEmail_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="checkEmailAdd_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="checkEmail_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeVarification.aspx.cs">
+      <DependentUpon>CodeVarification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CodeVarification.aspx.designer.cs">
+      <DependentUpon>CodeVarification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgotPass.aspx.cs">
+      <DependentUpon>forgotPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgotPass.aspx.designer.cs">
+      <DependentUpon>forgotPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getDiseases_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listAdmins.aspx.cs">
+      <DependentUpon>listAdmins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listAdmins.aspx.designer.cs">
+      <DependentUpon>listAdmins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listAdmins_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="listDiseases.aspx.cs">
+      <DependentUpon>listDiseases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listDiseases.aspx.designer.cs">
+      <DependentUpon>listDiseases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listDiseases_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="listUsers.aspx.cs">
+      <DependentUpon>listUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listUsers.aspx.designer.cs">
+      <DependentUpon>listUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listUsers_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="logoutAdmin.aspx.cs">
+      <DependentUpon>logoutAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logoutAdmin.aspx.designer.cs">
+      <DependentUpon>logoutAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestDietPlan.aspx.cs">
+      <DependentUpon>RequestDietPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestDietPlan.aspx.designer.cs">
+      <DependentUpon>RequestDietPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetupNewPassword.aspx.cs">
+      <DependentUpon>SetupNewPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SetupNewPassword.aspx.designer.cs">
+      <DependentUpon>SetupNewPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showDietPlan.aspx.cs">
+      <DependentUpon>showDietPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showDietPlan.aspx.designer.cs">
+      <DependentUpon>showDietPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showRecommendations.aspx.cs">
+      <DependentUpon>showRecommendations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showRecommendations.aspx.designer.cs">
+      <DependentUpon>showRecommendations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tblAdmin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDiseas.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="updatedPass.aspx.cs">
+      <DependentUpon>updatedPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updatedPass.aspx.designer.cs">
+      <DependentUpon>updatedPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userLogin.aspx.cs">
+      <DependentUpon>userLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userLogin.aspx.designer.cs">
+      <DependentUpon>userLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userLoginPro_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserMasterPage.Master.cs">
+      <DependentUpon>UserMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserMasterPage.Master.designer.cs">
+      <DependentUpon>UserMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="userSignUp.aspx.cs">
+      <DependentUpon>userSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userSignUp.aspx.designer.cs">
+      <DependentUpon>userSignUp.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="adminLoginStyle\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="adminLoginStyle\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="adminLoginStyle\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="adminLoginStyle\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="adminLoginStyle\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="adminLoginStyle\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="adminLoginStyle\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="adminDashboard.Master" />
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="UserMasterPage.Master" />
+    <Content Include="dataset.csv" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53877</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44359/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+  </Target>
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FYPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="adminPassword" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="adminEmail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDiseases">
+          <Key>
+            <PropertyRef Name="DiseaseID" />
+          </Key>
+          <Property Name="DiseaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DiseaseName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="userEmail" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="userPassword" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="userStatus" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="activateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="adminLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="blockUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="checkAdminEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="checkEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="userType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="checkEmailAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="userType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="deleteAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="adminID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="deleteDisease" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diseaseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="emailchecker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="userType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getDiseases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="listAdmins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="listDiseases" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="listUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="userLoginPro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="FYPModelStoreContainer">
+          <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDiseases" EntityType="Self.tblDiseases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="adminID" />
+          </Key>
+          <Property Name="adminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDiseas">
+          <Key>
+            <PropertyRef Name="DiseaseID" />
+          </Key>
+          <Property Name="DiseaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DiseaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userStatus" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+          <EntitySet Name="tblDiseases" EntityType="Self.tblDiseas" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+          <FunctionImport Name="activateUser">
+          <Parameter Name="userId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="adminLogin" ReturnType="Collection(FYPModel.adminLogin_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="blockUser">
+          <Parameter Name="userId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="checkAdminEmail" ReturnType="Collection(FYPModel.checkAdminEmail_Result)">
+          <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="checkEmail" ReturnType="Collection(FYPModel.checkEmail_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="userType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="checkEmailAdd" ReturnType="Collection(FYPModel.checkEmailAdd_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="userType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="deleteAdmin">
+          <Parameter Name="adminID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="deleteDisease">
+          <Parameter Name="diseaseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="emailchecker" ReturnType="Collection(String)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="userType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="listAdmins" ReturnType="Collection(FYPModel.listAdmins_Result)" />
+          <FunctionImport Name="listDiseases" ReturnType="Collection(FYPModel.listDiseases_Result)" />
+          <FunctionImport Name="listUsers" ReturnType="Collection(FYPModel.listUsers_Result)" />
+          <FunctionImport Name="UserLogin" ReturnType="Collection(FYPModel.UserLogin_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="userLoginPro" ReturnType="Collection(FYPModel.userLoginPro_Result)">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getDiseases" ReturnType="Collection(FYPModel.getDiseases_Result)" />
+        </EntityContainer>
+        <ComplexType Name="adminLogin_Result">
+          <Property Type="Int32" Name="adminID" Nullable="false" />
+          <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="checkAdminEmail_Result">
+          <Property Type="Int32" Name="adminID" Nullable="false" />
+          <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="checkEmail_Result">
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="userStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="checkEmailAdd_Result">
+          <Property Type="Int32" Name="adminID" Nullable="false" />
+          <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="listAdmins_Result">
+          <Property Type="Int32" Name="adminID" Nullable="false" />
+          <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="listDiseases_Result">
+          <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+          <Property Type="String" Name="DiseaseName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="listUsers_Result">
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="userStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="UserLogin_Result">
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="userStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="userLoginPro_Result">
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+          <Property Type="Boolean" Name="userStatus" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getDiseases_Result">
+          <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+          <Property Type="String" Name="DiseaseName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FYPModelStoreContainer" CdmEntityContainer="FYPEntities">
+          <EntitySetMapping Name="tblAdmins">
+            <EntityTypeMapping TypeName="FYPModel.tblAdmin">
+              <MappingFragment StoreEntitySet="tblAdmin">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
+                <ScalarProperty Name="adminEmail" ColumnName="adminEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDiseases">
+            <EntityTypeMapping TypeName="FYPModel.tblDiseas">
+              <MappingFragment StoreEntitySet="tblDiseases">
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="FYPModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="activateUser" FunctionName="FYPModel.Store.activateUser" />
+          <FunctionImportMapping FunctionImportName="adminLogin" FunctionName="FYPModel.Store.adminLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.adminLogin_Result">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
+                <ScalarProperty Name="adminEmail" ColumnName="adminEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="blockUser" FunctionName="FYPModel.Store.blockUser" />
+          <FunctionImportMapping FunctionImportName="checkAdminEmail" FunctionName="FYPModel.Store.checkAdminEmail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.checkAdminEmail_Result">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
+                <ScalarProperty Name="adminEmail" ColumnName="adminEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="checkEmail" FunctionName="FYPModel.Store.checkEmail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.checkEmail_Result">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="checkEmailAdd" FunctionName="FYPModel.Store.checkEmailAdd">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.checkEmailAdd_Result">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
+                <ScalarProperty Name="adminEmail" ColumnName="adminEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="deleteAdmin" FunctionName="FYPModel.Store.deleteAdmin" />
+          <FunctionImportMapping FunctionImportName="deleteDisease" FunctionName="FYPModel.Store.deleteDisease" />
+          <FunctionImportMapping FunctionImportName="emailchecker" FunctionName="FYPModel.Store.emailchecker" />
+          <FunctionImportMapping FunctionImportName="listAdmins" FunctionName="FYPModel.Store.listAdmins">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.listAdmins_Result">
+                <ScalarProperty Name="adminID" ColumnName="adminID" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
+                <ScalarProperty Name="adminEmail" ColumnName="adminEmail" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="listDiseases" FunctionName="FYPModel.Store.listDiseases">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.listDiseases_Result">
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="listUsers" FunctionName="FYPModel.Store.listUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.listUsers_Result">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UserLogin" FunctionName="FYPModel.Store.UserLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.UserLogin_Result">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="userLoginPro" FunctionName="FYPModel.Store.userLoginPro">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.userLoginPro_Result">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userStatus" ColumnName="userStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getDiseases" FunctionName="FYPModel.Store.getDiseases">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FYPModel.getDiseases_Result">
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

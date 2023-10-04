@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FYPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adminName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adminPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="adminEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDiseas">
+    <Key>
+      <PropertyRef Name="DiseaseID" />
+    </Key>
+    <Property Name="DiseaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiseaseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userEmail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userStatus" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FYPEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+    <EntitySet Name="tblDiseases" EntityType="Self.tblDiseas" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <FunctionImport Name="activateUser">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="adminLogin" ReturnType="Collection(FYPModel.adminLogin_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="blockUser">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="checkAdminEmail" ReturnType="Collection(FYPModel.checkAdminEmail_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="checkEmail" ReturnType="Collection(FYPModel.checkEmail_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="userType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="checkEmailAdd" ReturnType="Collection(FYPModel.checkEmailAdd_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="userType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="deleteAdmin">
+      <Parameter Name="adminID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="deleteDisease">
+      <Parameter Name="diseaseID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="emailchecker" ReturnType="Collection(String)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="userType" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="listAdmins" ReturnType="Collection(FYPModel.listAdmins_Result)" />
+    <FunctionImport Name="listDiseases" ReturnType="Collection(FYPModel.listDiseases_Result)" />
+    <FunctionImport Name="listUsers" ReturnType="Collection(FYPModel.listUsers_Result)" />
+    <FunctionImport Name="UserLogin" ReturnType="Collection(FYPModel.UserLogin_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userLoginPro" ReturnType="Collection(FYPModel.userLoginPro_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getDiseases" ReturnType="Collection(FYPModel.getDiseases_Result)" />
+  </EntityContainer>
+  <ComplexType Name="adminLogin_Result">
+    <Property Type="Int32" Name="adminID" Nullable="false" />
+    <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="status" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="checkAdminEmail_Result">
+    <Property Type="Int32" Name="adminID" Nullable="false" />
+    <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="status" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="checkEmail_Result">
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="userStatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="checkEmailAdd_Result">
+    <Property Type="Int32" Name="adminID" Nullable="false" />
+    <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="status" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="listAdmins_Result">
+    <Property Type="Int32" Name="adminID" Nullable="false" />
+    <Property Type="String" Name="adminName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminPassword" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="adminEmail" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="status" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="listDiseases_Result">
+    <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+    <Property Type="String" Name="DiseaseName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="listUsers_Result">
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="userStatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UserLogin_Result">
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="userStatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="userLoginPro_Result">
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userEmail" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="userPassword" Nullable="false" MaxLength="30" />
+    <Property Type="Boolean" Name="userStatus" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="getDiseases_Result">
+    <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+    <Property Type="String" Name="DiseaseName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+</Schema>

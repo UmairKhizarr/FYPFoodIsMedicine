@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMasterPage.master.cs" Inherits="FoodIsMedicine.UserMasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Health & Diet Plan</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="Bootstrap/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .body-bg {
+            background: #444654;
+            min-height: 100vh;
+        }
+
+        .content-wrap {
+            min-height: 100vh;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            /*position: absolute;*/
+            /*bottom: 0;*/
+            width: 100%;
+            height: 60px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" class="body-bg" runat="server">
+    <div class="content-wrap">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <a class="navbar-brand bg-success p-2 " href="UserHome.aspx">Food is Medicine</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon "></span>
+  </button>
+  <div class="collapse navbar-collapse  " id="navbarNav">
+
+    <div class="navbar-nav bg-dark">
+      <a class="nav-link text-white " href="Home.aspx">Home</a>&nbsp&nbsp
+      <a class="nav-link text-white  " href="#">About<span>&nbsp</span>Us</a>&nbsp&nbsp
+      <a class="nav-link text-white " href="Services.aspx">Services</a>&nbsp&nbsp
+      <%--<a class="nav-link text-white"  href="Sleeptips.aspx">Sleep<span>&nbsp</span>Tips</a>&nbsp&nbsp--%>
+      <a class="nav-link text-white " href="Feedback.aspx">Feedback</a>
+      
+ </div>
+
+  </div>
+
+  <div class="container">
+  <div class="row  col-12 d-flex justify-content-end px-1">
+   <a href="adminLogin.aspx" class="col-lg-5 col-6 col-md-3 col-xl-3 btn btn-success btn-lg mt-2">Admin Login</a>
+
+  </div> 
+   </div>  
+</nav>
+        
+        
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+        <div class="footer" id="footer">
+        <p>All Rights Reserved Copyright © 2023 Health & Diet Plan</p>
+      </div>
+    </form>
+</body>
+</html>
